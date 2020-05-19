@@ -1,0 +1,188 @@
+#
+# Be aware that even a small syntax error here can lead to failures in output.
+#
+
+sidebar:
+    about: False # set to False or comment line if you want to remove the "how to use?" in the sidebar
+    education: False # set to False if you want education in main section instead of in sidebar
+
+    # Profile information
+    name: Wafi Bedewi
+    tagline: -----
+   # avatar: profile.png  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
+
+    # Sidebar links
+    email: hello@webjeda.com
+    phone: 
+    website: thebedewi.com #do not add http://
+    linkedin: wafib
+    github: wafib
+    gitlab:
+    bitbucket:
+    twitter: '@wafib'
+    stack-overflow: # Number/Username, e.g. 123456/alandoe
+    codewars:
+    goodreads: # Number-Username, e.g. 123456-alandoe
+
+    languages:
+      - idiom: Arabic
+        level: Native
+
+      - idiom: English
+        level: Professional
+
+      - idiom: French
+        level: Intermediate
+
+    interests:
+      - item: Swimming
+        link:
+
+      - item: Photography
+        link:
+
+      - item: 
+        link:
+
+career-profile:
+    title: Career Profile
+    summary: |
+      Wafi is a PhD student at Cardiff University. 
+      His PhD and career interests are around identity in cooperation systems.
+      He also holds a Lecturer position at King Abdulaziz University, Jeddah,
+      Saudi Arabia. Wafi received his MSc degree in Information Security and
+      Privacy in 2015 from Cardiff University.
+education:
+    - degree: MSc in information Security and Privacy
+      university: Cardiff University
+      time: 2015
+      # details: |
+      #   Describe your study here lorem ipsum dolor sit amet, consectetuer
+      #   adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+      #   sociis natoque penatibus et magnis dis parturient montes, nascetur
+      #   ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+      #   pretium quis, sem.
+      #     - Bullet point
+      #     - Bullet point
+    - degree: BSc in Computing
+      university: The University of Buckingham
+      time: 2013
+      # details: |
+        # Describe your study here lorem ipsum dolor sit amet, consectetuer
+        # adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+        # sociis natoque penatibus et magnis dis parturient montes, nascetur
+        # ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+        # pretium quis, sem.
+        #   - Bullet point
+        #   - Bullet point
+experiences:
+    - role: Lecturer
+      time: 2015 - Present
+      company: King Abdulaziz University, Jeddah, Saudi Arabia
+    #   details: |
+    #     Describe your role here lorem ipsum dolor sit amet, consectetuer
+    #     adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+    #     Cum sociis natoque penatibus et magnis dis parturient montes,
+    #     nascetur ridiculus mus. Donec quam felis, ultricies nec,
+    #     pellentesque eu, pretium quis, sem. Nulla consequat massa quis
+    #     enim. Donec pede justo. Sed ut perspiciatis unde omnis iste natus
+    #     error sit voluptatem accusantium doloremque laudantium, totam rem
+    #     aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+    #     architecto beatae vitae dicta sunt explicabo.
+    #       - Bullet point
+    #       - Bullet point
+    # - role: Senior Software Engineer
+    #   time: 2014 - 2015
+    #   company: Google, London
+    #   details: |
+    #     Describe your role here lorem ipsum dolor sit amet, consectetuer
+    #     adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+    #     Cum sociis natoque penatibus et magnis dis parturient montes,
+    #     nascetur ridiculus mus. Donec quam felis, ultricies nec,
+    #     pellentesque eu, pretium quis, sem.
+    #       - Bullet point
+    #       - Bullet point
+    # - role: UI Developer
+      # time: 2012 - 2014
+      # company: Amazon, London
+      # details: |
+        # Describe your role here lorem ipsum dolor sit amet, consectetuer
+        # adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+        # Cum sociis natoque penatibus et magnis dis parturient montes,
+        # nascetur ridiculus mus. Donec quam felis, ultricies nec,
+        # pellentesque eu, pretium quis, sem.
+        #   - Bullet point
+        #   - Bullet point
+# projects:
+#     title: Projects
+#     intro: >
+#       You can list your side projects or open source libraries in this
+#       section. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+#       Vestibulum et ligula in nunc bibendum fringilla a eu lectus.
+#     assignments:
+#       - title: Velocity
+#         link: "#hook"
+#         tagline: "A responsive website template designed to help startups promote, market and sell their products."
+
+#       - title: DevStudio
+#         link: "#"
+#         tagline: "A responsive website template designed to help web developers/designers market their services."
+
+#       - title: Tempo
+#         link: "#"
+#         tagline: "A responsive website template designed to help startups promote their products or services and to attract users &amp; investors"
+
+#       - title: Atom
+#         link: "#"
+#         tagline: "A comprehensive website template solution for startups/developers to market their mobile apps."
+
+#       - title: Delta
+#         link: "#"
+#         tagline: "A responsive Bootstrap one page theme designed to help app developers promote their mobile apps"
+
+publications:
+    title: Publications
+    intro: |
+      You can list your publications in this section. Lorem ipsum dolor sit
+      amet, consectetur adipiscing elit. Vestibulum et ligula in nunc
+      bibendum fringilla a eu lectus.
+    papers:
+      - title: The implications of shared identity on indirect reciprocity
+        link: "https://doi.org/10.1080/24751839.2020.1741858"
+        authors: Wafi Bedewi, Roger M Whitaker, Gualtiero B Colombo, Stuart M Allen, Yarrow Dunham
+        journal: Journal of Information and Telecommunication, 2020
+
+      - title: Modelling Stereotyping in Cooperation Systems
+        link: "https://link.springer.com/chapter/10.1007/978-3-030-28377-3_10"
+        authors: Wafi Bedewi, Roger M Whitaker, Gualtiero B Colombo, Stuart M Allen, Yarrow Dunham
+        conference: International Conference on Computational Collective Intelligence
+
+      # - title: A syntax directed compiler for Algol 60
+      #   link: "#"
+      #   authors: Edgar T. Irons
+      #   conference: "Comm. ACM 4 (1961), 51–55"
+
+# skills:
+#     title: Skills &amp; Proficiency
+
+#     toolset:
+#       - name: Python & Django
+#         level: 98%
+
+#       - name: Javascript & jQuery
+#         level: 98%
+
+#       - name: Angular
+#         level: 98%
+
+#       - name: HTML5 & CSS
+#         level: 95%
+
+#       - name: Ruby on Rails
+#         level: 85%
+
+#       - name: Sketch & Photoshop
+#         level: 60%
+
+footer: >
+    Designed with <i class="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>
