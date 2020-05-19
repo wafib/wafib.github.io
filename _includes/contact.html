@@ -2,8 +2,7 @@
   <ul class="list-unstyled contact-list">
 
     {% if sidebar.email %}
-    <li class="email"><i class="fas fa-envelope"></i>
-      <a href="mailto:{{ sidebar.email }}">{{ wafibed@gmail.com }}</a>
+    <li class="email"> <a href="mailto:{{ sidebar.email }}">{{ sidebar.email }}<i class="fas fa-envelope"></i></a>
     </li>
     {% endif %}
 
