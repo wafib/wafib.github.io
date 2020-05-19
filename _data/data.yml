@@ -155,12 +155,12 @@ publications:
       - title: Modelling Stereotyping in Cooperation Systems
         link: "https://link.springer.com/chapter/10.1007/978-3-030-28377-3_10"
         authors: Wafi Bedewi, Roger M Whitaker, Gualtiero B Colombo, Stuart M Allen, Yarrow Dunham
-        conference: International Conference on Computational Collective Intelligence
+        conference: International Conference on Computational Collective Intelligence, 2019
 
-      # - title: A syntax directed compiler for Algol 60
-      #   link: "#"
-      #   authors: Edgar T. Irons
-      #   conference: "Comm. ACM 4 (1961), 51–55"
+      - title: CrowdyQ: a virtual crowdsourcing platform for question items development in higher education
+        link: "https://dl.acm.org/doi/abs/10.1145/2837185.2843852"
+        authors: Emad A Alghamdi, Naif R Aljohani, Abdullah N Alsaleh, Wafi Bedewi, Mohammed Basheri
+        conference: 17th International Conference on Information Integration and Web-based Applications & Services, 2015
 
 # skills:
 #     title: Skills &amp; Proficiency
