@@ -34,15 +34,15 @@ sidebar:
       - idiom: French
         level: Intermediate
 
-    interests:
-      - item: Swimming
-        link:
+    # interests:
+    #   - item: Swimming
+    #     link:
 
-      - item: Photography
-        link:
+    #   - item: Photography
+    #     link:
 
-      - item: 
-        link:
+    #   - item: 
+    #     link:
 
 career-profile:
     title: Career Profile
@@ -142,10 +142,10 @@ experiences:
 
 publications:
     title: Publications
-    intro: |
-      You can list your publications in this section. Lorem ipsum dolor sit
-      amet, consectetur adipiscing elit. Vestibulum et ligula in nunc
-      bibendum fringilla a eu lectus.
+    # intro: |
+      # You can list your publications in this section. Lorem ipsum dolor sit
+      # amet, consectetur adipiscing elit. Vestibulum et ligula in nunc
+      # bibendum fringilla a eu lectus.
     papers:
       - title: The implications of shared identity on indirect reciprocity
         link: "https://doi.org/10.1080/24751839.2020.1741858"
