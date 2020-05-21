@@ -53,6 +53,9 @@ career-profile:
       Saudi Arabia. Wafi received his MSc degree in Information Security and
       Privacy in 2015 from Cardiff University.
 education:
+    - degree: PhD 
+      university: Cardiff University
+      time: 2017-present
     - degree: MSc in information Security and Privacy
       university: Cardiff University
       time: 2015
