@@ -47,15 +47,16 @@ sidebar:
 career-profile:
     title: Career Profile
     summary: |
-      Wafi is a PhD student at Cardiff University. 
+      Wafi is a Lecturer at King Abdulaziz University, Jeddah,
+      Saudi Arabia.
       His PhD and career interests are around identity in cooperation systems.
-      He also holds a Lecturer position at King Abdulaziz University, Jeddah,
-      Saudi Arabia. Wafi received his MSc degree in Information Security and
-      Privacy in 2015 from Cardiff University.
+      Wafi received his PhD degree in 2021 from Cardiff University.
 education:
     - degree: PhD 
       university: Cardiff University
-      time: 2017-present
+      time: 2021
+      title: Modelling shared identity and reputation in cooperation systems
+      link: "https://orca.cardiff.ac.uk/144936/"
     - degree: MSc in information Security and Privacy
       university: Cardiff University
       time: 2015
