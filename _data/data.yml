@@ -80,8 +80,11 @@ education:
         #   - Bullet point
         #   - Bullet point
 experiences:
+    - role: Assistant Professor
+      time: 2022 - Present
+      company: King Abdulaziz University, Jeddah, Saudi Arabia
     - role: Lecturer
-      time: 2015 - Present
+      time: 2015 - 2022
       company: King Abdulaziz University, Jeddah, Saudi Arabia
     #   details: |
     #     Describe your role here lorem ipsum dolor sit amet, consectetuer
