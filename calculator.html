@@ -4,52 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mileage Calculator</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Mileage Calculator</h1>
-
-    <div id="calculator">
-        <label for="origin">Enter Origin Airport:</label>
-        <input type="text" id="origin" placeholder="Origin Airport"><br><br>
-
-        <label for="destination">Enter Destination Airport:</label>
-        <input type="text" id="destination" placeholder="Destination Airport"><br><br>
-
-        <button id="calculateMilesBtn">Calculate Miles</button><br><br>
-
-        <label for="result" id="resultLabel"></label>
+    <div class="container">
+        <h1>Mileage Calculator</h1>
+        <div class="calculator">
+            <h2>Calculate Distance</h2>
+            <label for="origin">Origin Airport:</label>
+            <input type="text" id="origin" placeholder="Origin Airport (IATA Code)">
+            <label for="destination">Destination Airport:</label>
+            <input type="text" id="destination" placeholder="Destination Airport (IATA Code)">
+            <button id="calculateMilesBtn">Calculate Miles</button>
+            <p id="resultLabel"></p>
+        </div>
+        <div class="calculator">
+            <h2>Calculate Mileage</h2>
+            <label for="fareClass">Select Fare Class:</label>
+            <select id="fareClass">
+                <option value="First Class Flex">First Class Flex</option>
+                <option value="Business Class Flex">Business Class Flex</option>
+                <option value="Business Class Basic">Business Class Basic</option>
+                <option value="Guest Class Flex">Guest Class Flex</option>
+                <option value="Guest Basic">Guest Basic</option>
+                <option value="Guest Saver">Guest Saver</option>
+                <option value="First Class Semi-Flex">First Class Semi-Flex</option>
+                <option value="Business Class Semi-Flex">Business Class Semi-Flex</option>
+                <option value="Guest Class Semi-Flex">Guest Class Semi-Flex</option>
+            </select>
+            <label for="milesFlown">Enter Miles Flown:</label>
+            <input type="number" id="milesFlown" placeholder="Miles Flown">
+            <label for="membershipStatus">Select Membership Status:</label>
+            <select id="membershipStatus">
+                <option value="Green">Green</option>
+                <option value="Silver">Silver</option>
+                <option value="Gold">Gold</option>
+            </select>
+            <label for="domesticFlight">Is this a domestic flight?</label>
+            <input type="checkbox" id="domesticFlight">
+            <label for="bonusPercentage">Enter Bonus Percentage:</label>
+            <input type="number" id="bonusPercentage" placeholder="Bonus Percentage">
+            <button id="calculateMileageBtn">Calculate Mileage</button>
+            <p id="totalMileageLabel"></p>
+        </div>
     </div>
-
-    <div id="mileageCalculator">
-        <label for="fareClass">Select Fare Class:</label>
-        <select id="fareClass">
-            <option value="Guest Basic">Guest Basic</option>
-            <option value="Guest Class Flex">Guest Class Flex</option>
-            <!-- Add other fare classes here -->
-        </select><br><br>
-
-        <label for="milesFlown">Enter Miles Flown:</label>
-        <input type="number" id="milesFlown" placeholder="Miles Flown"><br><br>
-
-        <label for="membershipStatus">Select Membership Status:</label>
-        <select id="membershipStatus">
-            <option value="Green">Green</option>
-            <option value="Silver">Silver</option>
-            <option value="Gold">Gold</option>
-        </select><br><br>
-
-        <label for="domesticFlight">Is this a domestic flight?</label>
-        <input type="checkbox" id="domesticFlight"><br><br>
-
-        <label for="bonusPercentage">Enter Bonus Percentage:</label>
-        <input type="number" id="bonusPercentage" step="0.01" placeholder="Bonus Percentage"><br><br>
-
-        <button id="calculateMileageBtn">Calculate Mileage</button><br><br>
-
-        <label for="totalMileage" id="totalMileageLabel"></label>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
