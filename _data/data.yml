@@ -51,34 +51,7 @@ career-profile:
       Saudi Arabia.
       His PhD and career interests are around identity in cooperation systems.
       Wafi received his PhD degree in 2021 from Cardiff University.
-education:
-    - degree: PhD 
-      university: Cardiff University
-      time: 2021
-      title: Modelling shared identity and reputation in cooperation systems
-      link: "https://orca.cardiff.ac.uk/144936/"
-    - degree: MSc in information Security and Privacy
-      university: Cardiff University
-      time: 2015
-      # details: |
-      #   Describe your study here lorem ipsum dolor sit amet, consectetuer
-      #   adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-      #   sociis natoque penatibus et magnis dis parturient montes, nascetur
-      #   ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
-      #   pretium quis, sem.
-      #     - Bullet point
-      #     - Bullet point
-    - degree: BSc in Computing
-      university: The University of Buckingham
-      time: 2013
-      # details: |
-        # Describe your study here lorem ipsum dolor sit amet, consectetuer
-        # adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-        # sociis natoque penatibus et magnis dis parturient montes, nascetur
-        # ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
-        # pretium quis, sem.
-        #   - Bullet point
-        #   - Bullet point
+
 experiences:
     - role: Assistant Professor
       time: 2022 - Present
@@ -173,6 +146,36 @@ publications:
         link: "https://dl.acm.org/doi/abs/10.1145/2837185.2843852"
         authors: Emad A Alghamdi, Naif R Aljohani, Abdullah N Alsaleh, Wafi Bedewi, Mohammed Basheri
         conference: 17th International Conference on Information Integration and Web-based Applications & Services, 2015
+        
+        
+education:
+    - degree: PhD 
+      university: Cardiff University
+      time: 2021
+      title: Modelling shared identity and reputation in cooperation systems
+      link: "https://orca.cardiff.ac.uk/144936/"
+    - degree: MSc in information Security and Privacy
+      university: Cardiff University
+      time: 2015
+      # details: |
+      #   Describe your study here lorem ipsum dolor sit amet, consectetuer
+      #   adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+      #   sociis natoque penatibus et magnis dis parturient montes, nascetur
+      #   ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+      #   pretium quis, sem.
+      #     - Bullet point
+      #     - Bullet point
+    - degree: BSc in Computing
+      university: The University of Buckingham
+      time: 2013
+      # details: |
+        # Describe your study here lorem ipsum dolor sit amet, consectetuer
+        # adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+        # sociis natoque penatibus et magnis dis parturient montes, nascetur
+        # ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+        # pretium quis, sem.
+        #   - Bullet point
+        #   - Bullet point
 
 # skills:
 #     title: Skills &amp; Proficiency
