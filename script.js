@@ -8,10 +8,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const origin = originInput.value.toUpperCase();
         const destination = destinationInput.value.toUpperCase();
 
-        // Implement geodesic distance calculation here using JavaScript
+        try {
+            // Use the geodesic function to calculate distance
+            const originCoordinates = { latitude: airports[origin].lat, longitude: airports[origin].lon };
+            const destinationCoordinates = { latitude: airports[destination].lat, longitude: airports[destination].lon };
+            const distance = geodesic(originCoordinates, destinationCoordinates).miles;
 
-        // Update the result label
-        resultLabel.textContent = `Distance between ${origin} and ${destination}: XXX miles`; // Replace XXX with the actual distance
+            // Update the result label
+            resultLabel.textContent = `Distance between ${origin} and ${destination}: ${distance.toFixed(2)} miles`;
+        } catch (error) {
+            // Handle errors
+            resultLabel.textContent = 'Error: Unable to get coordinates for one or both airports';
+        }
     });
 
     const calculateMileageBtn = document.getElementById('calculateMileageBtn');
@@ -29,9 +37,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const isDomestic = domesticFlightCheckbox.checked;
         const bonusPercentage = parseFloat(bonusPercentageInput.value);
 
-        // Implement mileage calculation here using JavaScript
+        // Define fare class earning rates
+        const earningRates = isDomestic ? fareEarningRates.Domestic : fareEarningRates.International;
+
+        // Get the earning rate for the selected fare class
+        const earningRate = earningRates[fareClass] || 0;
+
+        // Calculate total mileage
+        const baseMileage = milesFlown * earningRate;
+        const bonusMultiplier = bonusMultipliers[membershipStatus] || 1.0;
+        const totalMileage = baseMileage * bonusMultiplier;
 
         // Update the total mileage label
-        totalMileageLabel.textContent = `Total mileage with bonus: XXX miles`; // Replace XXX with the actual total mileage
+        totalMileageLabel.textContent = `Total mileage with bonus: ${totalMileage.toFixed(2)} miles`;
     });
 });
