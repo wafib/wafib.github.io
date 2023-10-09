@@ -9,7 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const fareEarningRates = {
             "First Class Flex": 3.5,
-            "Business Class Flex": 2.5,
+            "First Class Semi-Flex": 2.0,
+            "Business Class Flex": 1.75,
+            "Business Class Semi-Flex": 1.5,
+            "Business Class Basic": 1.25,
+            "Guest Class Flex": 1.0,
+            "Guest Class Semi-Flex": 0.6,
+            "Guest Basic": 0.35,
+            "Guest Saver": 0.3,
             // Add other fare class rates here
         };
 
