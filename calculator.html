@@ -22,20 +22,16 @@
             <option value="Guest Saver">Guest Saver</option>
         </select>
 
-        <label for="miles-flown">Enter Miles Flown:</label>
-        <input type="number" id="miles-flown" placeholder="Miles Flown">
-
-        <label for="membership-status">Select Membership Status:</label>
-        <select id="membership-status">
-            <option value="Green">Green</option>
-            <option value="Silver">Silver</option>
-            <option value="Gold">Gold</option>
-        </select>
-
-        <label for="bonus-percentage">Enter Bonus Percentage:</label>
-        <input type="number" id="bonus-percentage" placeholder="Bonus Percentage">
-
-        <button type="button" id="calculate">Calculate Mileage</button>
+        <input type="text" id="milesFlown" placeholder="Enter Miles Flown" value="324">
+		<select id="fareClass" name="fareClass">
+			<!-- Add your fare class options here -->
+		</select>
+		<select id="membershipStatus" name="membershipStatus">
+			<!-- Add your membership status options here -->
+		</select>
+		<input type="number" id="bonusPercentage" placeholder="Bonus Percentage" value="0">
+		<button onclick="calculateMileage()">Calculate Mileage</button>
+		<p id="result"></p>
     </form>
     <div id="result"></div>
     <script src="script.js"></script>
