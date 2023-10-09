@@ -154,12 +154,11 @@ publications:
       # amet, consectetur adipiscing elit. Vestibulum et ligula in nunc
       # bibendum fringilla a eu lectus.
     papers:
-    - title: Is Covid-19 being used to spread Malware
+      - title: Is Covid-19 being used to spread Malware
         link: "https://doi.org/10.1007/s42979-023-01838-6"
         authors: Ruqayah N. Ahmed, Amir Javed, Wafi Bedewi 
         conference:  SN Computer Science, 2023
-
-    
+        
       - title: The implications of shared identity on indirect reciprocity
         link: "https://doi.org/10.1080/24751839.2020.1741858"
         authors: Wafi Bedewi, Roger M Whitaker, Gualtiero B Colombo, Stuart M Allen, Yarrow Dunham
