@@ -7,48 +7,31 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Mileage Calculator</h1>
-        <div class="calculator">
-            <h2>Calculate Distance</h2>
-            <label for="origin">Origin Airport:</label>
-            <input type="text" id="origin" placeholder="Origin Airport (IATA Code)">
-            <label for="destination">Destination Airport:</label>
-            <input type="text" id="destination" placeholder="Destination Airport (IATA Code)">
-            <button id="calculateMilesBtn">Calculate Miles</button>
-            <p id="resultLabel"></p>
-        </div>
-        <div class="calculator">
-            <h2>Calculate Mileage</h2>
-            <label for="fareClass">Select Fare Class:</label>
-            <select id="fareClass">
-                <option value="First Class Flex">First Class Flex</option>
-                <option value="Business Class Flex">Business Class Flex</option>
-                <option value="Business Class Basic">Business Class Basic</option>
-                <option value="Guest Class Flex">Guest Class Flex</option>
-                <option value="Guest Basic">Guest Basic</option>
-                <option value="Guest Saver">Guest Saver</option>
-                <option value="First Class Semi-Flex">First Class Semi-Flex</option>
-                <option value="Business Class Semi-Flex">Business Class Semi-Flex</option>
-                <option value="Guest Class Semi-Flex">Guest Class Semi-Flex</option>
-            </select>
-            <label for="milesFlown">Enter Miles Flown:</label>
-            <input type="number" id="milesFlown" placeholder="Miles Flown">
-            <label for="membershipStatus">Select Membership Status:</label>
-            <select id="membershipStatus">
-                <option value="Green">Green</option>
-                <option value="Silver">Silver</option>
-                <option value="Gold">Gold</option>
-            </select>
-            <label for="domesticFlight">Is this a domestic flight?</label>
-            <input type="checkbox" id="domesticFlight">
-            <label for="bonusPercentage">Enter Bonus Percentage:</label>
-            <input type="number" id="bonusPercentage" placeholder="Bonus Percentage">
-            <button id="calculateMileageBtn">Calculate Mileage</button>
-            <p id="totalMileageLabel"></p>
-        </div>
-    </div>
-	<script src="https://cdn.jsdelivr.net/npm/geopy@2.2.0/dist/geopy.min.js"></script>
+    <h1>Mileage Calculator</h1>
+    <form>
+        <label for="fare-class">Select Fare Class:</label>
+        <select id="fare-class">
+            <option value="First Class Flex">First Class Flex</option>
+            <option value="Business Class Flex">Business Class Flex</option>
+            <!-- Add other fare class options here -->
+        </select>
+
+        <label for="miles-flown">Enter Miles Flown:</label>
+        <input type="number" id="miles-flown" placeholder="Miles Flown">
+
+        <label for="membership-status">Select Membership Status:</label>
+        <select id="membership-status">
+            <option value="Green">Green</option>
+            <option value="Silver">Silver</option>
+            <option value="Gold">Gold</option>
+        </select>
+
+        <label for="bonus-percentage">Enter Bonus Percentage:</label>
+        <input type="number" id="bonus-percentage" placeholder="Bonus Percentage">
+
+        <button type="button" id="calculate">Calculate Mileage</button>
+    </form>
+    <div id="result"></div>
     <script src="script.js"></script>
 </body>
 </html>
