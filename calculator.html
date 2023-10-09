@@ -1,16 +1,65 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your GitHub Pages Site</title>
+    <title>Alfursan Mileage Calculator</title>
 </head>
 <body>
-    <!-- Your site content goes here -->
+    <!-- Calculator content here -->
+    <h1>Alfursan Mileage Calculator</h1>
 
-    <!-- Embed the calculator -->
-    <iframe src="calculator.html" width="100%" height="600" frameborder="0"></iframe>
+    <!-- Origin and destination entry fields -->
+    <label for="origin">Enter Origin Airport:</label>
+    <input type="text" id="origin" name="origin" placeholder="Origin Airport Code"><br><br>
 
-    <!-- More site content if needed -->
+    <label for="destination">Enter Destination Airport:</label>
+    <input type="text" id="destination" name="destination" placeholder="Destination Airport Code"><br><br>
+
+    <!-- Calculate miles button -->
+    <button onclick="calculateMiles()">Calculate Miles</button><br><br>
+
+    <!-- Fare class dropdown -->
+    <label for="fareClass">Select Fare Class:</label>
+    <select id="fareClass" name="fareClass">
+        <option value="First Class Flex">First Class Flex</option>
+        <option value="Business Class Flex">Business Class Flex</option>
+        <option value="Business Class Basic">Business Class Basic</option>
+        <!-- Add other fare classes here -->
+    </select><br><br>
+
+    <!-- Miles flown entry -->
+    <label for="milesFlown">Enter Miles Flown:</label>
+    <input type="number" id="milesFlown" name="milesFlown" placeholder="Miles Flown"><br><br>
+
+    <!-- Membership status dropdown -->
+    <label for="membershipStatus">Select Membership Status:</label>
+    <select id="membershipStatus" name="membershipStatus">
+        <option value="Green">Green</option>
+        <option value="Silver">Silver</option>
+        <option value="Gold">Gold</option>
+    </select><br><br>
+
+    <!-- Domestic flight checkbox -->
+    <label>Is this a domestic flight?</label>
+    <input type="checkbox" id="isDomestic" name="isDomestic"><br><br>
+
+    <!-- Calculate button -->
+    <button onclick="calculateMileage()">Calculate Mileage</button><br><br>
+
+    <!-- Bonus percentage entry -->
+    <label for="bonusPercentage">Enter Bonus Percentage:</label>
+    <input type="number" id="bonusPercentage" name="bonusPercentage" step="0.01" placeholder="Bonus Percentage"><br><br>
+
+    <!-- Reset button -->
+    <button onclick="resetFields()">Reset</button><br><br>
+
+    <!-- Result label -->
+    <p id="resultLabel"></p>
+
+    <!-- JavaScript for calculator functionality -->
+    <script>
+        // JavaScript code for your calculator goes here
+    </script>
 </body>
 </html>
