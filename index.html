@@ -1,21 +1,776 @@
----
-layout: default
----
-<h1 class="name">{{ "Wafi Bedewi" }}</h1> {% include contacts.html %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wafi Bedewi — Assistant Professor</title>
+    <meta name="description" content="Wafi Bedewi — Assistant Professor at King Abdulaziz University. AI researcher specializing in cooperation systems, identity, and game theory.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F0EEE9;
+            --surface: #ffffff;
+            --border: #C2CCC6;
+            --text: #1D2921;
+            --text-dim: #5C6660;
+            --accent: #055934;
+            --accent-glow: rgba(5, 89, 52, 0.08);
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans: 'Alexandria', system-ui, sans-serif;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) var(--bg);
+        }
 
-{% include career-profile.html %}
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
 
+        /* Grain overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.4;
+        }
 
-{% unless site.data.data.sidebar.education %}
-  {% include education.html %}
-{% endunless %}
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(240, 238, 233, 0.85);
+            border-bottom: 1px solid var(--border);
+            transition: transform 0.4s ease;
+        }
 
-{% include experiences.html %}
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
 
-{% include projects.html %}
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
 
-{% include publications.html %}
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            font-weight: 400;
+        }
 
-{% include skills.html %}
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 3rem;
+            position: relative;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-30px, 20px); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid rgba(5, 89, 52, 0.3);
+            padding: 0.4rem 1rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.2s;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.4s;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.6s;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.8s;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .hero-meta-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+        }
+
+        .hero-meta-value {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sections */
+        section {
+            padding: 7rem 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-number {
+            font-family: var(--serif);
+            font-size: 1rem;
+            color: var(--accent);
+            opacity: 0.6;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 400;
+        }
+
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Education & Experience Timeline */
+        .timeline {
+            display: grid;
+            gap: 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 3rem;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+
+        .timeline-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .timeline-year {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            color: var(--accent);
+            padding-top: 0.15rem;
+        }
+
+        .timeline-content h3 {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        /* Publications */
+        .publications {
+            display: grid;
+            gap: 0;
+        }
+
+        .pub-item {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .pub-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .pub-item:hover {
+            padding-left: 1.5rem;
+            background: linear-gradient(90deg, var(--accent-glow) 0%, transparent 40%);
+        }
+
+        .pub-title {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .pub-authors strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .pub-venue {
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+        }
+
+        .pub-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            border-color: rgba(5, 89, 52, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .project-tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-card h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-card p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+            padding: 10rem 3rem;
+        }
+
+        .contact-section h2 {
+            font-family: var(--serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-section h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .contact-desc {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 500px;
+            margin-inline: auto;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.8rem 1.8rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        .contact-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 3rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+
+            .menu-toggle { display: block; }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: rgba(240, 238, 233, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 1.5rem;
+                gap: 1.2rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.open { display: flex; }
+
+            .hero { padding: 0 1.5rem; }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            section { padding: 5rem 1.5rem; }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .timeline-year { font-size: 0.9rem; }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-section { padding: 6rem 1.5rem; }
+
+            footer {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="nav-logo">W.B.</a>
+        <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="1.5" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="about">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="hero-tag">Assistant Professor &middot; AI Researcher</span>
+            <h1>Wafi <em>Bedewi</em></h1>
+            <p class="hero-desc">
+                Exploring the dynamics of identity and cooperation through artificial intelligence, game theory, and social computing. Based at the Faculty of Computing and Information Technology, King Abdulaziz University.
+            </p>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Institution</span>
+                    <span class="hero-meta-value">King Abdulaziz University</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Department</span>
+                    <span class="hero-meta-value">Information Systems</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Location</span>
+                    <span class="hero-meta-value">Jeddah, Saudi Arabia</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <div class="section-header reveal">
+            <span class="section-number">01</span>
+            <h2 class="section-title">Education</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <span class="timeline-year">2021</span>
+                <div class="timeline-content">
+                    <h3>PhD in Computer Science</h3>
+                    <p>Cardiff University, United Kingdom</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <span class="timeline-year">2015</span>
+                <div class="timeline-content">
+                    <h3>MSc in Information Security &amp; Privacy</h3>
+                    <p>Cardiff University, United Kingdom</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <span class="timeline-year">2013</span>
+                <div class="timeline-content">
+                    <h3>BSc in Computing</h3>
+                    <p>The University of Buckingham, United Kingdom</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <div class="section-header reveal">
+            <span class="section-number">02</span>
+            <h2 class="section-title">Experience</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <span class="timeline-year">2026 — Present</span>
+                <div class="timeline-content">
+                    <h3>Consultant — Joint Supervision Program</h3>
+                    <p>King Abdulaziz University, Jeddah</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <span class="timeline-year">2025 — Present</span>
+                <div class="timeline-content">
+                    <h3>Director, Development &amp; Quality Unit</h3>
+                    <p>Faculty of Computing and Information Technology, King Abdulaziz University</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <span class="timeline-year">2022 — Present</span>
+                <div class="timeline-content">
+                    <h3>Assistant Professor</h3>
+                    <p>Faculty of Computing and Information Technology, King Abdulaziz University</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <span class="timeline-year">2022 — 2025</span>
+                <div class="timeline-content">
+                    <h3>Head, Academic Accreditation Division (ABET)</h3>
+                    <p>Successfully secured ABET-CAC re-accreditation for CS, IS, and IT programs</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <span class="timeline-year">2015 — 2022</span>
+                <div class="timeline-content">
+                    <h3>Lecturer</h3>
+                    <p>King Abdulaziz University, Jeddah</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+        <div class="section-header reveal">
+            <span class="section-number">03</span>
+            <h2 class="section-title">Selected Publications</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="publications">
+            <div class="pub-item reveal">
+                <a href="https://link.springer.com/article/10.1007/s10723-025-09815-4" target="_blank" rel="noopener" class="pub-link">
+                    <div class="pub-title">Proximal Policy Optimization for Vehicular Big Data Offloading Across Edge, Regional, and Cloud Layers</div>
+                    <div class="pub-authors">Tariq Alsahfi, Afzal Badshah, Raed Alsini, Fouad Shoie Alallah, <strong>Wafi Bedewi</strong>, Ali Daud</div>
+                    <div class="pub-venue">Journal of Grid Computing, 2025</div>
+                </a>
+            </div>
+            <div class="pub-item reveal">
+                <a href="https://www.sciencedirect.com/science/article/pii/S2590123025029020" target="_blank" rel="noopener" class="pub-link">
+                    <div class="pub-title">Integrating Convolutional Stacked Long Short-Term Memory with Bio-Inspired Algorithm for Secure UAV Communication in SDN Environment</div>
+                    <div class="pub-authors">Iyad Katib, Mahmoud Ragab, Sanaa A. Sharaf, Emad Albassam, <strong>Wafi Bedewi</strong>, Abdulaziz A. Alsulami, Abdullah AL-Malaise AL-Ghamdi</div>
+                    <div class="pub-venue">Results in Engineering, 2025</div>
+                </a>
+            </div>
+            <div class="pub-item reveal">
+                <a href="https://doi.org/10.1007/s42979-023-01838-6" target="_blank" rel="noopener" class="pub-link">
+                    <div class="pub-title">Is Covid-19 Being Used to Spread Malware</div>
+                    <div class="pub-authors">Ruqayah N. Ahmed, Amir Javed, <strong>Wafi Bedewi</strong></div>
+                    <div class="pub-venue">SN Computer Science, 2023</div>
+                </a>
+            </div>
+            <div class="pub-item reveal">
+                <a href="https://doi.org/10.1080/24751839.2020.1741858" target="_blank" rel="noopener" class="pub-link">
+                    <div class="pub-title">The Implications of Shared Identity on Indirect Reciprocity</div>
+                    <div class="pub-authors"><strong>Wafi Bedewi</strong>, Roger M Whitaker, Gualtiero B Colombo, Stuart M Allen, Yarrow Dunham</div>
+                    <div class="pub-venue">Journal of Information and Telecommunication, 2020</div>
+                </a>
+            </div>
+            <div class="pub-item reveal">
+                <a href="https://doi.org/10.1007/978-3-030-28377-3_10" target="_blank" rel="noopener" class="pub-link">
+                    <div class="pub-title">Modelling Stereotyping in Cooperation Systems</div>
+                    <div class="pub-authors"><strong>Wafi Bedewi</strong>, Roger M Whitaker, Gualtiero B Colombo, Stuart M Allen, Yarrow Dunham</div>
+                    <div class="pub-venue">International Conference on Computational Collective Intelligence, 2019</div>
+                </a>
+            </div>
+            <div class="pub-item reveal">
+                <a href="https://doi.org/10.1145/2837185.2843852" target="_blank" rel="noopener" class="pub-link">
+                    <div class="pub-title">CrowdyQ: A Virtual Crowdsourcing Platform for Question Items Development in Higher Education</div>
+                    <div class="pub-authors">Emad A Alghamdi, Naif R Aljohani, Abdullah N Alsaleh, <strong>Wafi Bedewi</strong>, Mohammed Basheri</div>
+                    <div class="pub-venue">17th International Conference on Information Integration and Web-based Applications &amp; Services, 2015</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="section-header reveal">
+            <span class="section-number">04</span>
+            <h2 class="section-title">Projects</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card reveal">
+                <span class="project-tag">Educational Technology</span>
+                <h3>QuizPulse</h3>
+                <p>A live classroom quiz application with real-time polling, AI-generated questions from uploaded documents, and competitive leaderboards for student engagement.</p>
+            </div>
+            <div class="project-card reveal">
+                <span class="project-tag">Quality Assurance</span>
+                <h3>FCIT Accreditation</h3>
+                <p>Leading ABET and national accreditation efforts for undergraduate and postgraduate programs at the Faculty of Computing and Information Technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <h2 class="reveal">Let's <em>Connect</em></h2>
+        <p class="contact-desc reveal">Open to research collaborations, academic partnerships, and conversations about AI and cooperation systems.</p>
+        <div class="contact-links reveal">
+            <a href="mailto:wbedewi@kau.edu.sa" class="contact-link">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Email
+            </a>
+            <a href="https://scholar.google.com/citations?hl=en&user=c3n25VYAAAAJ&view_op=list_works&sortby=pubdate" class="contact-link" target="_blank" rel="noopener">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5zM12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+                Google Scholar
+            </a>
+            <a href="https://github.com/wafib" class="contact-link" target="_blank" rel="noopener">
+                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/wafib" class="contact-link" target="_blank" rel="noopener">
+                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <span>&copy; 2026 Wafi Bedewi</span>
+        <span>Built with <a href="https://claude.ai" style="color: var(--accent); text-decoration: none;">Claude</a></span>
+    </footer>
+
+    <script>
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>
